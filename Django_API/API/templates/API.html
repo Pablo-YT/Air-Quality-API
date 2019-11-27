@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if api %}
+    {% if api == "Error...!" %}
+        <h3>OOF! There was an error. Someone Messed up and it wasn't you :)(Or Maybe It WASSSS.....). Please try again....</h3>
+    {% else %}
+
+    <div class="jumbotron {{ category_color }}">
+        <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+        <p class="lead">Current {{ api.0.ReportingArea }} Air Quality : {{ api.0.AQI }}</p>
+        <p>{{ category_description }}</p>
+        <p>Date Accessed : {{ api.0.DateObserved }}</p>
+    </div>
+
+
+<!-- 
+    AQI: Good (0 - 50)
+Air quality is considered satisfactory, and air pollution poses little or no risk
+
+AQI: Moderate (51 - 100)
+Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.
+
+AQI: Unhealthy for Sensitive Groups (101 - 150)
+Although general public is not likely to be affected at this AQI range, people with lung disease, older adults and children are at a greater risk from exposure to ozone, whereas persons with heart and lung disease, older adults and children are at greater risk from the presence of particles in the air.
+
+AQI: Unhealthy (151 - 200)
+Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects.
+
+AQI: Very Unhealthy (201 - 300)
+Health alert: everyone may experience more serious health effects.
+
+AQI: Hazardous (301 - 500)
+Health warnings of emergency conditions. The entire population is more likely to be affected.
+-->
+
+    {% endif %}
+{% endif %}
+
+
+
+{% endblock %}
